@@ -2,7 +2,7 @@ import "./ProductCard.css";
 import { useCart } from "../context/CartContext";
 import { useEffect, useState } from "react";
 export const ProductCard = ({product}) => {
-  const {id, name,price,image} = product;
+  const {name,price,image} = product;
 
   const [isInCart, setIsInCart] = useState(false);
   const {removeFromCart, addToCart , cartList} = useCart();
@@ -16,7 +16,7 @@ export const ProductCard = ({product}) => {
     else{
       setIsInCart(false);
     }
-  },[cartList , id])
+  },[cartList,product.id]);
 
   return (
     <div className="productCard">
